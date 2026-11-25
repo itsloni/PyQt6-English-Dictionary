@@ -1,8 +1,7 @@
 from PyQt6.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout, QHBoxLayout
-from PyQt6.QtWidgets import QLineEdit, QPushButton, QFileDialog
+from PyQt6.QtWidgets import QLineEdit, QPushButton
 import json
 from pathlib import Path
-from PyQt6.QtCore import Qt
 
 def word_dict():
     search_word = text.text()
@@ -14,7 +13,6 @@ def word_dict():
         output_dict.setText("\n".join(json_str_to_dict[search_word_low]))
     else:
         output_dict.setText("Sorry Word not Found")
-
 
 app =  QApplication([])
 window = QWidget()
