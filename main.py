@@ -1,12 +1,15 @@
 from PyQt6.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout, QHBoxLayout
 from PyQt6.QtWidgets import QLineEdit, QPushButton, QFileDialog
+import json
 from pathlib import Path
 from PyQt6.QtCore import Qt
 
 def word_dict():
+
     path = Path("data.json")
     content = path.read_text()
-    print(content)
+    json_str_to_dict = json.loads(content)
+
 
 
 word_dict()
