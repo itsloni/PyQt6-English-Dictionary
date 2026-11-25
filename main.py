@@ -6,17 +6,22 @@ from PyQt6.QtCore import Qt
 
 def word_dict():
     search_word = text.text()
+    search_word_low = search_word.lower()
     path = Path("data.json")
     content = path.read_text()
     json_str_to_dict = json.loads(content)
-    output_dict.setText(json_str_to_dict[search_word])
+    if search_word_low in json_str_to_dict:
+        output_dict.setText("\n".join(json_str_to_dict[search_word_low]))
+    else:
+        output_dict.setText("Sorry Word not Found")
 
 
 app =  QApplication([])
 window = QWidget()
-window.setWindowTitle("Word Dictionary/")
+window.setWindowTitle("Word Dictionary")
 
 layout = QVBoxLayout()
+layout.setContentsMargins(100, 100, 100, 100)
 layout1 = QHBoxLayout()
 
 layout.addLayout(layout1)
