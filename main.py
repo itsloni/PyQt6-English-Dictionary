@@ -5,14 +5,11 @@ from pathlib import Path
 from PyQt6.QtCore import Qt
 
 def word_dict():
-
+    search_word = text.text()
     path = Path("data.json")
     content = path.read_text()
     json_str_to_dict = json.loads(content)
-
-
-
-word_dict()
+    output_dict.setText(json_str_to_dict[search_word])
 
 
 app =  QApplication([])
@@ -31,7 +28,7 @@ output_dict = QLabel("")
 layout.addWidget(output_dict)
 
 btn = QPushButton("Meaning")
-# btn.clicked.connect(word_dict)
+btn.clicked.connect(word_dict)
 layout1.addWidget(btn)
 
 window.setLayout(layout)
