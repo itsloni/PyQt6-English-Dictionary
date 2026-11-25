@@ -5,8 +5,11 @@ from PyQt6.QtCore import Qt
 
 def word_dict():
     path = Path("data.json")
-    for json in path:
-        print(json)
+    content = path.read_text()
+    print(content)
+
+
+word_dict()
 
 
 app =  QApplication([])
@@ -25,7 +28,7 @@ output_dict = QLabel("")
 layout.addWidget(output_dict)
 
 btn = QPushButton("Meaning")
-btn.clicked.connect(word_dict)
+# btn.clicked.connect(word_dict)
 layout1.addWidget(btn)
 
 window.setLayout(layout)
